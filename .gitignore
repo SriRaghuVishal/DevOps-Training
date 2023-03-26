@@ -1,1 +1,2 @@
-*.txt
+#Gitignorefile
+Dummy.txt
