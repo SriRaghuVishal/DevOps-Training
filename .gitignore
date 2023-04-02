@@ -1,3 +1,4 @@
 #Gitignorefile
 *.txt
 !Dummy.txt
+!Test.txt
