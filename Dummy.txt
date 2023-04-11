@@ -2,4 +2,3 @@ This is for testing purpose.
 
 1) One
 2) Two
-3) Three
