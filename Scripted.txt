@@ -1,0 +1,13 @@
+node {
+    stage('Checkout') { 
+       checkout scmGit(branches: [[name: '*/Second_branch']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/SriRaghuVishal/DevOps-Training.git']])
+    }
+}
+stage('Deploy approval'){
+    input "Do you want to proceed for production deployment?"
+}
+node{
+    stage('Deploy') {
+        deploy adapters: [tomcat9(credentialsId: '9b7f9195-66f0-4c39-8cf2-9ba4d0843aac', path: '', url: 'http://localhost:8136')], contextPath: 'resume4', war: 'resumewar.war'
+    }
+}

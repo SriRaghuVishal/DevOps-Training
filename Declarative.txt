@@ -1,0 +1,22 @@
+pipeline{
+    agent any
+    stages{
+        
+        stage('Checkout'){
+            steps{
+                checkout scmGit(branches: [[name: '*/Second_branch']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/SriRaghuVishal/DevOps-Training.git']])
+            }
+        }
+        
+        stage('Deploy'){
+            
+            input{
+                message "Do you want to proceed for production deployment?"
+            }
+            
+            steps{
+                deploy adapters: [tomcat9(credentialsId: '9b7f9195-66f0-4c39-8cf2-9ba4d0843aac', path: '', url: 'http://localhost:8136')], contextPath: 'resume3', war: 'resumewar.war'
+            }
+        }
+    }
+}

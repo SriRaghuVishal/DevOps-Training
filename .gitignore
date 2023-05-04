@@ -2,3 +2,5 @@
 *.txt
 !Dummy.txt
 !Test.txt
+!Declarative.txt
+!Scripted.txt
